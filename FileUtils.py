@@ -1,6 +1,8 @@
 import random
 
-class File_maker():
+OLD_FILE_PATH = 'File_dir/old.txt'
+
+class FileMaker():
     """Создает новый файл с выбранными строками"""
     def __init__(self, file_path, len_new_file=10):
         self.old_file = open(file_path).readlines()
@@ -23,7 +25,7 @@ class File_maker():
         """Генерирует список с рандомными индексами строк"""
         rand_index = [random.randint(1, self.len_old_file - 1) for i in range(self.len_new_file)]
         rand_index.sort()
-        i = int(0)
+        i = 0
         while i != len(rand_index):
             if rand_index[i] == rand_index[i - 1]:
                 rand_index.pop(i)
@@ -32,7 +34,3 @@ class File_maker():
                 i = -1
             i += 1
         return rand_index
-
-OLD_FILE_PATH = 'File_dir/old.txt'
-
-
