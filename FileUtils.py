@@ -1,5 +1,5 @@
 import random
-
+import QuickSort as qs
 OLD_FILE_PATH = 'File_dir/old.txt'
 
 class FileMaker():
@@ -24,13 +24,14 @@ class FileMaker():
     def random_index(self):
         """Генерирует список с рандомными индексами строк"""
         rand_index = [random.randint(1, self.len_old_file - 1) for i in range(self.len_new_file)]
-        rand_index.sort()
+        qs.quick_sort(rand_index)
         i = 0
         while i != len(rand_index):
             if rand_index[i] == rand_index[i - 1]:
                 rand_index.pop(i)
                 rand_index.append(random.randint(1, self.len_old_file) - 1)
                 rand_index.sort()
+                qs.quick_sort(rand_index)
                 i = -1
             i += 1
         return rand_index
