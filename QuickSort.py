@@ -16,5 +16,3 @@ def quick_sort(list):
             elements_smaller.append(item)
 
     return quick_sort(elements_smaller) + [last_element] + quick_sort(elements_bigger)
-
-print(quick_sort([5,6,7,8,9,8,7,6,5,6,7,8,9,0]))
